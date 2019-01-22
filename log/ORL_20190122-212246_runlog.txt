@@ -1,0 +1,11 @@
+
+Train data shape: (120, 112, 92)
+Train labels shape: (120, 1)
+Test data shape: (280, 112, 92)
+Test labels shape: (280, 1)
+****************************************
+Face recognition by PCA ...
+Reshape train data: (120, 10304)
+Reshape test data: (280, 10304)
+The accuracy of face recognition by PCA is 0.8214285714285714
+****************************************
