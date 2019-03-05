@@ -14,9 +14,9 @@ if __name__ == '__main__':
 
     train_X, train_Y, test_X, test_Y = load_ORLdataset(args.dataset_path, args.rgb2gray)
 
-    message = 'Train data shape: {}'.format(train_X.shape) + '\n' + \
+    message = 'Train images shape: {}'.format(train_X.shape) + '\n' + \
     'Train labels shape: {}'.format(train_Y.shape) + '\n' + \
-    'Test data shape: {}'.format(test_X.shape) + '\n' + \
+    'Test images shape: {}'.format(test_X.shape) + '\n' + \
     'Test labels shape: {}'.format(test_Y.shape)
     print(message)
     with open(log, "a") as log_file:

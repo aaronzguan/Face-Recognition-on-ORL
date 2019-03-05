@@ -89,7 +89,7 @@ def train(net, loader, optimizer, criterion, epoch):
     running_loss = 0.0
     running_corrects = 0
 
-    # Iterate over data.
+    # Iterate over images.
     for i, (face, label) in enumerate(loader):
 
         face = face.to(device)

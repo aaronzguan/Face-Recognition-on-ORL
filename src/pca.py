@@ -35,7 +35,7 @@ def train_PCA(data, num_components):
     Keep only num_components eigenvectors (corresponding to the num_components largest eigenvalues)
     Each training face is represented in this basis by a vector
 
-    Calculate the weight vectors for training data
+    Calculate the weight vectors for training images
     Normalized training face = F - mean = w1*u1 + w2*u2 + ... + wk*uk => w = u.T * face
 
     :param train_data:  M * N^2, each row corresponding to each image, which is reshaped into 1-D vector
@@ -83,11 +83,11 @@ def pca_face_recognitioin(train_data, train_label, test_data, test_label):
         isRGB = False
         HEIGHT, WIDTH = train_data.shape[1], train_data.shape[2]
 
-    # Reshape the image data into rows
+    # Reshape the image images into rows
     train_data = np.reshape(train_data, (train_data.shape[0], -1))
     test_data = np.reshape(test_data, (test_data.shape[0], -1))
-    message = 'Reshape train data: {}'.format(train_data.shape) + '\n' + \
-              'Reshape test data: {}'.format(test_data.shape)
+    message = 'Reshape train images: {}'.format(train_data.shape) + '\n' + \
+              'Reshape test images: {}'.format(test_data.shape)
     print(message)
     with open(log, "a") as log_file:
         log_file.write('\n' + message)

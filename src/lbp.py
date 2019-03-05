@@ -114,15 +114,15 @@ def lbp_face_recognition(train_data, train_label, test_data, test_label):
     :param test_label: L labels
     :return:
     """
-    assert len(train_data.shape) < 4, "The training data is not gray level image!"
-    assert len(test_data.shape) < 4, "The test data is not gray level image!"
+    assert len(train_data.shape) < 4, "The training images is not gray level image!"
+    assert len(test_data.shape) < 4, "The test images is not gray level image!"
     print('*' * 40)
     print('Face recognition by Uniform LBP ...')
 
     subRegion_size = [16, 23]
     sub_Height, sub_Width = subRegion_size[0], subRegion_size[1]
     print('Each face is divided into regions of {} x {}'.format(sub_Height, sub_Width))
-    # Get the LBP histogram for train data
+    # Get the LBP histogram for train images
     subRegion_train = divide_image(train_data, sub_Height, sub_Width)
     hist_lbp_train = []
     for i in range(subRegion_train.shape[0]):
@@ -134,9 +134,9 @@ def lbp_face_recognition(train_data, train_label, test_data, test_label):
         hist_lbp_train_sub = np.asarray(hist_lbp_train_sub, dtype='float32')
         hist_lbp_train.append(hist_lbp_train_sub)
     hist_lbp_train = np.asarray(hist_lbp_train, dtype='float32')
-    print('Train data LBP histogram shape: ', hist_lbp_train.shape)
+    print('Train images LBP histogram shape: ', hist_lbp_train.shape)
 
-    # Get the LBP histogram for test data
+    # Get the LBP histogram for test images
     subRegion_test = divide_image(test_data, sub_Height, sub_Width)
     hist_lbp_test = []
     for i in range(subRegion_test.shape[0]):
@@ -148,9 +148,9 @@ def lbp_face_recognition(train_data, train_label, test_data, test_label):
         hist_lbp_test_sub = np.asarray(hist_lbp_test_sub, dtype='float32')
         hist_lbp_test.append(hist_lbp_test_sub)
     hist_lbp_test = np.asarray(hist_lbp_test, dtype='float32')
-    print('Test data LBP histogram shape: ', hist_lbp_test.shape)
+    print('Test images LBP histogram shape: ', hist_lbp_test.shape)
 
-    # Calculate the Chi square distance between the test face and train data
+    # Calculate the Chi square distance between the test face and train images
     print('Calculate the Chi square distance ...')
     correct_count = 0
     for i in range(len(hist_lbp_test)):
